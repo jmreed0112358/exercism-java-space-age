@@ -1,50 +1,60 @@
 package spaceage;
 
-import exceptions.NotImplementedException;
+import java.security.InvalidParameterException;
 
 public class SpaceAge
 {
+	private Long ageInSeconds = 0L;
+	
 	public SpaceAge(Integer ageInSeconds) {
-		throw new NotImplementedException();
+		if ( ageInSeconds < 0 ) {
+			throw new InvalidParameterException();
+		}
+		
+		this.ageInSeconds = ageInSeconds.longValue( );
 	}
 	
 	public SpaceAge(Long ageInSeconds) {
-		throw new NotImplementedException();
+		if ( ageInSeconds < 0 ) {
+			throw new InvalidParameterException();
+		}
+		
+		this.ageInSeconds = ageInSeconds;
 	}
 	
 	public Double getSeconds() {
-		throw new NotImplementedException();
+		return this.ageInSeconds.doubleValue( );
 	}
 	
 	public Double onMercury() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_MERCURY_YEAR;
 	}
 	
 	public Double onVenus() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_VENUS_YEAR;
 	}
 	
 	public Double onEarth() {
-		throw new NotImplementedException();
+		return this.getSeconds( ) / ConversionFactors.SECONDS_PER_EARTH_YEAR;
 	}
 	
 	public Double onMars() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_MARS_YEAR;
 	}
 	
 	public Double onJupiter() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_JUPITER_YEAR;
 	}
 	
 	public Double onSaturn() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_SATURN_YEAR;
 	}
 	
 	public Double onUranus() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_URANUS_YEAR;
 	}
 	
 	public Double onNeptune() {
-		throw new NotImplementedException();
+		return this.onEarth() / ConversionFactors.EARTH_YEARS_PER_NEPTUNE_YEAR;
 	}
 }
