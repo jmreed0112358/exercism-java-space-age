@@ -2,11 +2,38 @@ package spaceage;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.security.InvalidParameterException;
 
 public class SpaceAgeTest {
 
     private static final double MAXIMUM_DELTA = 1E-02;
 
+    @Test
+    public void test_constructor_InvalidAge_NegativeInteger_ThrowsException() {
+    	try {
+    		SpaceAge age = new SpaceAge(-10000);
+    		fail("Supposed to catch InvalidParameterException");
+    	} catch ( InvalidParameterException ipe ) {
+    		
+    	} catch ( Exception e ) {
+    		fail("Supposed to catch InvalidParameterException");
+    	}
+    }
+    
+    @Test
+    public void test_constructor_InvalidAge_NegativeLong_ThrowsException() {
+    	try {
+    		SpaceAge age = new SpaceAge(-10000L);
+    		fail("Supposed to catch InvalidParameterException");
+    	} catch ( InvalidParameterException ipe ) {
+    		
+    	} catch ( Exception e ) {
+    		fail("Supposed to catch InvalidParameterException");
+    	}
+    }
+    
     @Test
     public void ageInSeconds() {
         SpaceAge age = new SpaceAge(1000000);
